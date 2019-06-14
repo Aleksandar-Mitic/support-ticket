@@ -5,12 +5,12 @@
 @section('content')
 
     <div class="panel-heading">
-        <i class="fa fa-ticket"> My Tickets</i>
+        <i class="fa fa-ticket"> All Tickets</i>
     </div>
 
     <div class="panel-body">
         @if ($tickets->isEmpty())
-            <p>You have not created any tickets.</p>
+            <p>No tickets tickets.</p>
         @else
             <table class="table">
                 <thead>
@@ -37,11 +37,7 @@
                             </a>
                         </td>
                         <td>
-                            @if ($ticket->status === 'Open')
-                                <span class="label label-success">{{ $ticket->status }}</span>
-                            @else
-                                <span class="label label-danger">{{ $ticket->status }}</span>
-                            @endif
+                            @include('partials.ticket_status')
                         </td>
                         <td>{{ $ticket->updated_at }}</td>
                     </tr>
