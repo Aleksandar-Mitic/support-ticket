@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    <br />
+                    <a href="{{route('ticket.index')}}">View Tickets</a>
                 </div>
             </div>
         </div>

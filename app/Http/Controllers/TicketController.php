@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 //use App\User;
 use App\Category;
 use App\Ticket;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,7 +63,7 @@ class TicketController extends Controller
 
         $ticket->save();
 
-        return redirect()->back()->with("message", "A ticket with ID: #$ticket->ticket_id has been opened.");
+        return redirect()->back()->with("success", "A ticket with ID: #$ticket->ticket_id has been opened.");
 
     }
 
@@ -76,12 +75,14 @@ class TicketController extends Controller
      */
     public function show($ticket_id)
     {
+
         $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
 
         $category = $ticket->category;
 
-        return view('tickets.show', compact('ticket', 'category'));
+        $comments = $ticket->comments;
 
+        return view('tickets.show', compact('ticket', 'category', 'comments'));
     }
 
     /**

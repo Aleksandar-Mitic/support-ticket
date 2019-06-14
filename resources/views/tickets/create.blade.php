@@ -6,9 +6,7 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">Open New Ticket</div>
-
         <div class="panel-body">
-            {{--                    @include('includes.flash')--}}
 
             @if (session('message'))
                 <div class="alert alert-success">
@@ -27,8 +25,8 @@
 
                         @if ($errors->has('title'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('title') }}</strong>
-                                    </span>
+                                                <strong>{{ $errors->first('title') }}</strong>
+                                            </span>
                         @endif
                     </div>
                 </div>
@@ -46,8 +44,8 @@
 
                         @if ($errors->has('category'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('category') }}</strong>
-                                    </span>
+                                                <strong>{{ $errors->first('category') }}</strong>
+                                            </span>
                         @endif
                     </div>
                 </div>
@@ -65,8 +63,8 @@
 
                         @if ($errors->has('priority'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('priority') }}</strong>
-                                    </span>
+                                                <strong>{{ $errors->first('priority') }}</strong>
+                                            </span>
                         @endif
                     </div>
                 </div>
@@ -79,8 +77,8 @@
 
                         @if ($errors->has('message'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('message') }}</strong>
-                                    </span>
+                                                <strong>{{ $errors->first('message') }}</strong>
+                                            </span>
                         @endif
                     </div>
                 </div>

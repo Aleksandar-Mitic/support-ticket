@@ -28,3 +28,6 @@ Route::get('/user/{user}/tickets', 'TicketController@userTickets');
 Route::get('/ticket/{ticket}/edit', 'TicketController@edit')->name('ticket.edit');
 Route::patch('/ticket/{ticket}', 'TicketController@update')->name('ticket.update');
 Route::delete('/ticket/{ticket}', 'TicketController@update')->name('ticket.destroy');
+
+// Comments
+Route::post('/comment', 'CommentController@store')->name('comment.create');
