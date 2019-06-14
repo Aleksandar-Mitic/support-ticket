@@ -80,8 +80,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="24">
-                <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+              <first_editor relative-caret-position="480">
+                <caret line="20" column="92" lean-forward="true" selection-start-line="20" selection-start-column="92" selection-end-line="20" selection-end-column="92" />
               </first_editor>
               <second_editor />
             </state>
@@ -271,9 +271,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1569" />
+    <option name="x" value="1132" />
     <option name="y" value="28" />
-    <option name="width" value="1871" />
+    <option name="width" value="2308" />
     <option name="height" value="1344" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -400,12 +400,12 @@
       <workItem from="1560426054573" duration="12785000" />
       <workItem from="1560488476061" duration="6287000" />
       <workItem from="1560505463661" duration="974000" />
-      <workItem from="1560506454542" duration="8945000" />
+      <workItem from="1560506454542" duration="9267000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29601000" />
+    <option name="totallyTimeSpent" value="29923000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -417,10 +417,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1569" y="28" width="1871" height="1344" extended-state="0" />
+    <frame x="1132" y="28" width="2308" height="1344" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19737561" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15931156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -782,8 +782,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="24">
-            <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+          <first_editor relative-caret-position="480">
+            <caret line="20" column="92" lean-forward="true" selection-start-line="20" selection-start-column="92" selection-end-line="20" selection-end-column="92" />
           </first_editor>
           <second_editor />
         </state>
