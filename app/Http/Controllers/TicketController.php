@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-//use App\User;
 use App\Category;
 use App\Ticket;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class TicketController extends Controller
 {
@@ -76,6 +78,11 @@ class TicketController extends Controller
     public function show($ticket_id)
     {
 
+        $ticket = DB::select('select * from tickets where ticket_id = :ticket_id', ['ticket_id' => $ticket_id]);
+        $user = Auth::user();
+
+        if (Gate::allows('show-ticket', $ticket)){
+
         $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
 
         $category = $ticket->category;
@@ -83,6 +90,10 @@ class TicketController extends Controller
         $comments = $ticket->comments;
 
         return view('tickets.show', compact('ticket', 'category', 'comments'));
+
+        } else {
+            echo 'You  are not allowed';
+        }
     }
 
     /**
