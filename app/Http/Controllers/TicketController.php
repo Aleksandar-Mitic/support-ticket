@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Ticket;
 use App\User;
+use App\Ticket;
+use App\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class TicketController extends Controller
@@ -19,10 +20,11 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::paginate(15);
+        $tickets = Ticket::paginate(10);
         $categories = Category::all();
 
         return view('tickets.index', compact('tickets','categories'));
+        
     }
 
     /**
@@ -130,9 +132,9 @@ class TicketController extends Controller
         //
     }
 
-    public function userTickets()
+    public function userTickets($user_id)
     {
-        $tickets = Ticket::where('user_id', Auth::user()->id)->paginate(10);
+        $tickets = Ticket::where('user_id', $user_id)->paginate(10);
         $categories = Category::all();
 
         return view('tickets.user_tickets', compact('tickets','categories'));

@@ -48,6 +48,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $tickets->links() }}
         @endif
     </div>
 
