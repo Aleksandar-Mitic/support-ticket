@@ -79,23 +79,23 @@ class TicketController extends Controller
      */
     public function show($ticket_id)
     {
+            // get current logged in user
+            $user = Auth::user();
 
-        $ticket = DB::select('select * from tickets where ticket_id = :ticket_id', ['ticket_id' => $ticket_id]);
-        $user = Auth::user();
+        if ($user->can('viewAny', Ticket::class)) {
 
-        if (Gate::allows('show-ticket', $ticket)){
+            $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
 
-        $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
+            $category = $ticket->category;
 
-        $category = $ticket->category;
+            $comments = $ticket->comments;
 
-        $comments = $ticket->comments;
-
-        return view('tickets.show', compact('ticket', 'category', 'comments'));
+            return view('tickets.show', compact('ticket', 'category', 'comments'));
 
         } else {
-            echo 'You  are not allowed';
+            echo 'No no...';
         }
+
     }
 
     /**

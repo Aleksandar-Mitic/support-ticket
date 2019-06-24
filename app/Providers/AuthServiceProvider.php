@@ -14,7 +14,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        // 'App\Ticket' => 'App\Policies\TicketPolicy',
+        Ticket::class => TicketPolicy::class,
     ];
 
     /**
@@ -22,13 +23,9 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Gate $gate)
+    public function boot()
     {
         $this->registerPolicies();
-
-        Gate::define('show-ticket', function($user, $ticket) {
-            return $user->id == $ticket->user_id;
-        });
 
     }
 }
