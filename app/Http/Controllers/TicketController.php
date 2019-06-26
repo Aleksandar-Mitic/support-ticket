@@ -79,8 +79,8 @@ class TicketController extends Controller
      */
     public function show($ticket_id)
     {
-            // get current logged in user
-            $user = Auth::user();
+        // get current logged in user
+        $user = Auth::user();
 
         if ($user->can('viewAny', Ticket::class)) {
 
@@ -90,7 +90,7 @@ class TicketController extends Controller
 
             $comments = $ticket->comments;
 
-            return view('tickets.show', compact('ticket', 'category', 'comments'));
+            return view('tickets.show', compact('ticket', 'category', 'comments', 'user'));
 
         } else {
             echo 'No no...';
@@ -104,9 +104,27 @@ class TicketController extends Controller
      * @param \App\Ticket $ticket
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ticket $ticket)
+    public function edit($ticket_id)
     {
-        //
+        // dd($ticket_id);
+        $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
+        // get current logged in user
+        $user = Auth::user();
+
+        if ($user->can('update', $ticket)) {
+
+            
+            $category = $ticket->category;
+
+            $categories = Category::all();
+
+            $comments = $ticket->comments;
+
+            return view('tickets.edit', compact('ticket', 'category', 'comments', 'categories'));
+
+        } else {
+            echo 'No no...';
+        }
     }
 
     /**

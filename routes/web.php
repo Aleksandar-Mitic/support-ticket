@@ -25,7 +25,7 @@ Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');
 Route::post('/ticket', 'TicketController@store')->name('ticket.store');
 Route::get('/ticket/{ticket_id}', 'TicketController@show')->name('ticket.show');
 Route::get('/user/{user}/tickets', 'TicketController@userTickets')->name('ticket.userTickets');
-Route::get('/ticket/{ticket}/edit', 'TicketController@edit')->name('ticket.edit');
+Route::get('/ticket/{ticket_id}/edit', 'TicketController@edit')->name('ticket.edit');
 Route::patch('/ticket/{ticket}', 'TicketController@update')->name('ticket.update');
 Route::delete('/ticket/{ticket}', 'TicketController@update')->name('ticket.destroy');
 

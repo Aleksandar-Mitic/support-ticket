@@ -41,7 +41,9 @@
                         <a class="nav-link" href="{{ route('ticket.index') }}">{{ __('All Tickets') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('ticket.userTickets', ['user_id' => Auth::user()->id]) }}">{{ __('My Tickets') }}</a>
+                        @if (Auth::check())
+                            <a class="nav-link" href="{{ route('ticket.userTickets', ['user_id' => Auth::user()->id]) }}">{{ __('My Tickets') }}</a>
+                        @endif
                     </li>
                 </ul>
 

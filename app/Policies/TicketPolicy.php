@@ -53,7 +53,7 @@ class TicketPolicy
      */
     public function update(User $user, Ticket $ticket)
     {
-        return $user->id == $post->user_id;
+        return $user->id == $ticket->user_id;
     }
 
     /**
