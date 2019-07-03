@@ -7,9 +7,13 @@
         <div class="card-header">
             Ticket #{{ $ticket->ticket_id }} - {{ $ticket->title }} <br />
             Created by: {{ $user->name }}
-            @can('update', $ticket)
-                <a class="float-right" href="{{ route('ticket.edit', ['ticket' => $ticket->ticket_id]) }}"><button class="btn btn-primary">Edit ticket</button></a> 
-            @endcan
+            {{ Auth::check() }}
+            @if (Auth::check())
+                @can('update', $ticket)
+                    <a class="float-right" href="{{ route('ticket.edit', ['ticket' => $ticket->ticket_id]) }}"><button class="btn btn-primary">Edit ticket</button></a> 
+                @endcan
+            @endif
+
         </div>
 
         <div class="card-body">

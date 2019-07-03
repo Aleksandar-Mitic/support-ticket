@@ -49,7 +49,7 @@
                         @endif
                     </div>
                 </div>
-
+ 
                 <div class="form-group{{ $errors->has('priority') ? ' has-error' : '' }}">
                     <label for="priority" class="col-md-4 control-label">Priority</label>
 

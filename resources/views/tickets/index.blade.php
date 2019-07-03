@@ -44,7 +44,8 @@
                 @endforeach
                 </tbody>
             </table>
-            {{ $tickets->links() }}
+            <div class="d-flex justify-content-center">{{ $tickets->links() }}</div>
+
         @endif
     </div>
 

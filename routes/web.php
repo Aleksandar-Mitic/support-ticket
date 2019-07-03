@@ -21,13 +21,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Tickets
 Route::get('/tickets', 'TicketController@index')->name('ticket.index');
-Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');
-Route::post('/ticket', 'TicketController@store')->name('ticket.store');
+Route::get('/ticket/create', 'TicketController@create')->name('ticket.create')->middleware('auth');
+Route::post('/ticket', 'TicketController@store')->name('ticket.store')->middleware('auth');
 Route::get('/ticket/{ticket_id}', 'TicketController@show')->name('ticket.show');
-Route::get('/user/{user}/tickets', 'TicketController@userTickets')->name('ticket.userTickets');
-Route::get('/ticket/{ticket_id}/edit', 'TicketController@edit')->name('ticket.edit');
-Route::patch('/ticket/{ticket}', 'TicketController@update')->name('ticket.update');
-Route::delete('/ticket/{ticket}', 'TicketController@update')->name('ticket.destroy');
+Route::get('/user/{user}/tickets', 'TicketController@userTickets')->name('ticket.userTickets')->middleware('auth');
+Route::get('/ticket/{ticket_id}/edit', 'TicketController@edit')->name('ticket.edit')->middleware('auth');
+Route::patch('/ticket/{ticket}', 'TicketController@update')->name('ticket.update')->middleware('auth');
+Route::delete('/ticket/{ticket}', 'TicketController@update')->name('ticket.destroy')->middleware('auth');
 
 
 // Comments

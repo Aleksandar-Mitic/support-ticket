@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Ticket;
 use App\Category;
+use App\Mail\UserRegistered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TicketCreated;
 
 class TicketController extends Controller
 {
@@ -67,6 +71,8 @@ class TicketController extends Controller
 
         $ticket->save();
 
+        Mail::to($request->user())->send(new TicketCreated($ticket));
+
         return redirect()->back()->with("success", "A ticket with ID: #$ticket->ticket_id has been opened.");
 
     }
@@ -79,22 +85,14 @@ class TicketController extends Controller
      */
     public function show($ticket_id)
     {
-        // get current logged in user
-        $user = Auth::user();
 
-        if ($user->can('viewAny', Ticket::class)) {
+        $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
 
-            $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
+        $category = $ticket->category;
+        $comments = $ticket->comments;
+        $user     = $ticket->user;
 
-            $category = $ticket->category;
-
-            $comments = $ticket->comments;
-
-            return view('tickets.show', compact('ticket', 'category', 'comments', 'user'));
-
-        } else {
-            echo 'No no...';
-        }
+        return view('tickets.show', compact('ticket', 'category', 'comments', 'user'));
 
     }
 
@@ -137,6 +135,7 @@ class TicketController extends Controller
     public function update(Request $request, Ticket $ticket)
     {
         //
+        Log::log('notice', $ticket_id . ' has been edited');
     }
 
     /**
